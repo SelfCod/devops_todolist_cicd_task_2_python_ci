@@ -18,7 +18,6 @@ jobs:
         name: Setting up python ${{ env.PYTHON_VERSION }}
         with:
           python-version: ${{ env.PYTHON_VERSION }}
-      - run: python my_script.py
 
       - name: Install Dependencies
         run: |
