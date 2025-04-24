@@ -66,6 +66,7 @@ DB_NAME = os.environ.get("DB_NAME", os.path.join(BASE_DIR, "db.sqlite3"))
 DB_USER = os.environ.get("DB_USER", "")
 DB_PASSWORD = os.environ.get("DB_PASSWORD", "")
 DB_HOST = os.environ.get("DB_HOST", "")
+DB_PORT = os.environ.get("DB_PORT", "")
 
 DATABASES = {
     'default': {
@@ -75,7 +76,7 @@ DATABASES = {
         'PASSWORD': DB_PASSWORD,
         # You can use a different host if your MySQL server is on a remote machine.
         'HOST': DB_HOST,
-        'PORT': '',  # Leave this empty to use the default MySQL port (3306).
+        'PORT': DB_PORT,  # Leave this empty to use the default MySQL port (3306).
     }
 }
 
