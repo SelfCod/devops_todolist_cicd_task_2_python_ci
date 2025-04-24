@@ -28,6 +28,12 @@ jobs:
           pip install flake8 pytest pytest-django pytest-cov coverage
           pip install -r requirements.txt
 
+      - name: Run unit tests with coverage
+        run: |
+          python manage.py test -v2
+          coverage run --source='.' manage.py test -v2
+          coverage report -m
+
       - name: Lint (non-blocking)
         run: |
           flake8 . --show-source --statistics || true
@@ -36,10 +42,6 @@ jobs:
         run: |
           flake8 . --statistics --max-complexity=10 || true
 
-      - name: Run unit tests with coverage
-        run: |
-          python manage.py test
-          pytest -v --cov=. --cov-report=term-missing --cov-report=json
 
       - name: Upload Python code as an artifact
         uses: actions/upload-artifact@v4
